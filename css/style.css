@@ -30,7 +30,7 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: 'Amatic SC';
+  font-family: 'Amatic SC', sans-serif;
   font-weight: 400;
 }
 h1 {
@@ -47,7 +47,7 @@ header {
   margin: 2rem 0;
 }
 footer {
-  font-family: 'Amatic SC';
+  font-family: 'Amatic SC', sans-serif;
   color: #999;
   text-align: center;
 }
