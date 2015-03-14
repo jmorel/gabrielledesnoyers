@@ -1,10 +1,13 @@
 <!doctype html>
 <html>
 <head>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css"/>
     <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <meta charset="utf-8">
+
     <title>Gabrielle Desnoyers, professeur agrégée d'arts appliqués</title>
 </head>
 <body>
@@ -14,6 +17,7 @@
         <h1>
             Bonjour, je m'appelle Gabrielle Desnoyers.
         </h1>
+
         <h2>
             Je suis professeur agrégée d'arts appliqués.
         </h2>
@@ -27,9 +31,12 @@
 
         <p>
             Je travaille au quotidien sur l'enseignement du design, ses buts, ses méthodologies et son intégration dans
-            au sein de l'éducation nationale. Je complémente l'enseignement théorique de mes élèves par des projets concrets
-            <a href="transmissions.com">engagés et citoyens</a>, <a href="la tranchée">au long cours</a>, pour des clients réels en attente de résultat.
-            Pour faciliter l'acquisition et l'appropriation de connaissances théoriques, je développe des dispositifs ludiques, sous forme de <a href="7 familles du design">jeu</a> et
+            au sein de l'éducation nationale. Je complémente l'enseignement théorique de mes élèves par des projets
+            concrets
+            <a href="transmissions.com">engagés et citoyens</a>, <a href="la tranchée">au long cours</a>, pour des
+            clients réels en attente de résultat.
+            Pour faciliter l'acquisition et l'appropriation de connaissances théoriques, je développe des dispositifs
+            ludiques, sous forme de <a href="7 familles du design">jeu</a> et
             <a href="caricature">d'ateliers à la journée</a>.
         </p>
     </header>
@@ -73,29 +80,13 @@
                         Projets plastiques
                     </a>
                 </h2>
+
                 <p>
                     Derniers projets publiés :
                 </p>
-                <ul>
-                    <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="http://gades16.blogspot.fr/2015/03/carnets-de-voyages.html">Carnets de voyage</a>
-                        <span class="date">le 5 mars 2015</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="http://gades16.blogspot.fr/2015/03/motifs-cartographiques.html">Motifs cartographiques</a>
-                        <span class="date">le 5 mars 2015</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="http://gades16.blogspot.fr/2015/03/portraits-de-designers.html">Portraits de designers</a>
-                        <span class="date">le 5 mars 2015</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="http://gades16.blogspot.fr/2013/10/normal-0-21-false-false-false-fr-x-none.html">Territoires d'une vie</a>
-                        <span class="date">le 5 octobre 2014</span>
+                <ul id="feed">
+                    <li class="loading">
+                        <i class="fa fa-spinner fa-spin"></i> Chargement...
                     </li>
                 </ul>
             </div>
@@ -106,6 +97,54 @@
         &copy; Gabrielle Desnoyers - <a href="mailto:contact@gabrielledesnoyers.com">contact</a>
     </footer>
 
+    <!-- JS -->
+    <script type="text/javascript" src="js/mustache.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        var feed_url = 'http://gades16.blogspot.fr/feeds/posts/default';
+        google.load("feeds", "1");
+
+        function cleanTitle(title) {
+            return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+        }
+
+        function cleanDate(date) {
+            var months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre',
+                'octobre', 'novembre', 'décembre'];
+            date = new Date(date);
+            return date.getDay() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+        }
+
+        function initialize() {
+            var feed = new google.feeds.Feed(feed_url);
+            feed.load(function (result) {
+                if (!result.error) {
+                    var container = document.getElementById("feed");
+                    // reset content
+                    container.innerHTML = '';
+                    for (var i = 0; i < result.feed.entries.length; i++) {
+                        var entry = result.feed.entries[i];
+                        container.innerHTML += Mustache.render(
+                                document.getElementById('feed-entry-template').textContent,
+                                {
+                                    url: entry.link,
+                                    title: cleanTitle(entry.title),
+                                    date: cleanDate(entry.publishedDate)
+                                });
+                    }
+                }
+            });
+        }
+        google.setOnLoadCallback(initialize);
+    </script>
+    <script id="feed-entry-template" type="x-tmpl-mustache">
+        <li>
+            <i class="fa fa-angle-right"></i>
+            <a href="{{ url }}">{{ title }}</a>
+            <span class="date">le {{ date }}</span>
+        </li>
+
+    </script>
 </div>
 </body>
 </html>
