@@ -6,7 +6,7 @@ body {
   font-family: georgia, serif;
   color: #333333;
   padding: 2em 0;
-  background: url('logo.png');
+  background: url('/img/logo.png');
   background-repeat: no-repeat;
   background-position: left -50px top -100px;
   background-size: auto 100%;
