@@ -20,13 +20,13 @@
 
     <header>
         <h1>
-            Bonjour, je m'appelle Gabrielle Desnoyers.
+            Gabrielle <br>
+            Desnoyers
         </h1>
+        <div class="subtitle">Professeur agregee d'arts appliques</div>
+    </header>
 
-        <h2>
-            Je suis professeur agrégée d'arts appliqués.
-        </h2>
-
+    <section id="intro">
         <p>
             Mes recherches portent sur le futur de la profession de designer, sa relation aux métiers d'art et leur
             dynamique commune. Je transcris mes recherches au travers d’articles dont certains sont accessibles
@@ -40,7 +40,7 @@
             Pour faciliter l'acquisition et l'appropriation de connaissances théoriques, je développe des supports et
             dispositifs pédagogiques ludiques, sous forme de jeux et de workshop.
         </p>
-    </header>
+    </section>
 
     <section id="links">
         <div class="row">
@@ -48,13 +48,13 @@
                 <h2>Recherche</h2>
                 <ul>
                     <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="#">Résurgence des métiers d'arts, guildes moyenageuses et Arts and Crafts</a>
-                        <span class="date">Février 2015</span>
+                        <a class="project-link" href="#">
+                            <span class="project-title">Résurgence des métiers d'arts, guildes moyenageuses et Arts and Crafts</span>
+                            <span class="project-date">Février 2015</span>
+                        </a>
                     </li>
                     <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="#">La caricature en architecture</a>
+                        <a class="project-link" href="#">La caricature en architecture</a>
                     </li>
                 </ul>
             </div>
@@ -62,32 +62,32 @@
                 <h2>Enseignement</h2>
                 <ul>
                     <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="#">7 familles des designer</a>
+                        <a class="project-link" href="#">7 familles des designer</a>
                     </li>
                     <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="#">Trans'missions</a> : partenariat avec les Restos du Coeur
+                        <a class="project-link" href="#">
+                            <span class="project-title">Trans'missions</span>
+                            <span class="project-description">Partenariat avec les Restos du Coeur</span>
+                        </a>
                     </li>
                     <li>
-                        <i class="fa fa-angle-right"></i>
-                        <a href="#">Le blog de la section Arts Appliqués de Dreux</a>
+                        <a class="project-link" href="#">Le blog de la section Arts Appliqués de Dreux</a>
                     </li>
                 </ul>
             </div>
             <div class="col-1-3">
                 <h2>
-                    <a href="http://gades16.blogspot.com">
-                        Projets plastiques
-                    </a>
+                    Projets
                 </h2>
-
-                <p>
-                    Derniers projets publiés :
-                </p>
-                <ul id="feed">
-                    <li class="loading">
-                        <i class="fa fa-spinner fa-spin"></i> Chargement...
+                <ul>
+                    <li>
+                        <a class="project-link" href="http://gades16.blogspot.com">Projets plastiques</a>
+                    </li>
+                    <li>
+                        <a class="project-link" href="http://architecturealacarte.fr">Architecture à la carte</a>
+                    </li>
+                    <li>
+                        <a class="project-link" href="http://architecturealacarte.fr">Louis XIV heures 30</a>
                     </li>
                 </ul>
             </div>
@@ -95,69 +95,19 @@
     </section>
 
     <footer>
-        &copy; Gabrielle Desnoyers - <a href="mailto:contact@gabrielledesnoyers.com">contact</a>
+        &copy; Gabrielle Desnoyers
+        <a href="mailto:contact@gabrielledesnoyers.com">contact</a>
     </footer>
-
-    <!-- JS -->
-    <script type="text/javascript" src="js/mustache.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-        var feed_url = 'http://gades16.blogspot.fr/feeds/posts/default';
-        google.load("feeds", "1");
-
-        function cleanTitle(title) {
-            return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
-        }
-
-        function cleanDate(date) {
-            var months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre',
-                'octobre', 'novembre', 'décembre'];
-            date = new Date(date);
-            return date.getDay() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
-        }
-
-        function initialize() {
-            var feed = new google.feeds.Feed(feed_url);
-            feed.load(function (result) {
-                if (!result.error) {
-                    var container = document.getElementById("feed");
-                    // reset content
-                    container.innerHTML = '';
-                    for (var i = 0; i < result.feed.entries.length; i++) {
-                        var entry = result.feed.entries[i];
-                        container.innerHTML += Mustache.render(
-                                document.getElementById('feed-entry-template').textContent,
-                                {
-                                    url: entry.link,
-                                    title: cleanTitle(entry.title),
-                                    date: cleanDate(entry.publishedDate)
-                                });
-                    }
-                }
-            });
-        }
-        google.setOnLoadCallback(initialize);
-    </script>
-    <script id="feed-entry-template" type="text/x-tmpl-mustache">
-        <li>
-            <i class="fa fa-angle-right"></i>
-            <a href="{{ url }}">{{ title }}</a>
-            <span class="date">le {{ date }}</span>
-        </li>
-
-
-
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-60776358-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
 </div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-60776358-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 </body>
 </html>

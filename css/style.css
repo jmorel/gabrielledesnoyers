@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Ostrich Sans';
+  src: url('/fonts/ostrich/ostrich-sans-bold.eot');
+  src: local('Ostrich Sans'), url('/fonts/ostrich/ostrich-sans-bold.woff') format('woff'), url('/fonts/ostrich/ostrich-sans-bold.ttf') format('truetype'), url('/fonts/ostrich/ostrich-sans-bold.svg') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
 html {
   line-height: 1.67em;
 }
@@ -13,19 +20,15 @@ html {
 }
 @media (min-width: 960px) {
   html {
-    font-size: 18px;
+    font-size: 23px;
   }
 }
 body {
   font-family: georgia, serif;
-  color: #333333;
+  color: white;
   margin: 0;
   padding: 0;
-  background: url('/img/logo.png');
-  background-repeat: no-repeat;
-  background-position: left -50px top -100px;
-  background-size: auto 100%;
-  background-attachment: fixed;
+  background-image: linear-gradient(180deg, #fe4e4e 0%, #ff4400 50%, white 100%);
 }
 * {
   box-sizing: border-box;
@@ -33,7 +36,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: #ff8800;
+  color: white;
 }
 a:hover {
   text-decoration: underline;
@@ -60,20 +63,22 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: 'Amatic SC', sans-serif;
-  font-weight: 400;
+  font-family: 'Ostrich Sans', sans-serif;
+  font-weight: 700;
 }
 h1 {
-  font-size: 3rem;
-  line-height: 1.33em;
+  font-size: 2.67rem;
+  margin: 0;
+  line-height: 1em;
 }
 h2 {
   font-size: 2rem;
-  line-height: 1.33em;
+  line-height: 1em;
+  border-bottom: 10px solid white;
+  margin: 0;
 }
 header {
-  font-size: 1.25rem;
-  line-height: 1.5em;
+  border-bottom: 10px solid white;
 }
 @media (max-width: 959px) {
   header {
@@ -82,14 +87,28 @@ header {
 }
 @media (min-width: 960px) {
   header {
-    margin: 4rem 0 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 4rem 0 4rem 0;
   }
 }
+.subtitle {
+  font-family: 'Ostrich Sans', sans-serif;
+  font-size: 1.67rem;
+  line-height: 2rem;
+}
+section {
+  margin: 4rem 0;
+}
 footer {
-  font-family: 'Amatic SC', sans-serif;
-  color: #999;
-  text-align: center;
-  margin: 2rem 0;
+  border-bottom: 10px solid white;
+  margin: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+footer a {
+  color: inherit;
 }
 div.row {
   margin-left: -15px;
@@ -120,10 +139,33 @@ section#links ul {
   list-style: none;
 }
 section#links li {
-  margin: 0 0 0.67em 0;
+  margin: 1em 0;
+  line-height: 1.33em;
 }
-section#links .date {
+section#links .project-title {
+  display: block;
+}
+section#links .project-date {
+  display: block;
   color: #808080;
   font-style: italic;
   font-size: 0.9rem;
+  line-height: 1.2em;
+  margin-top: 0.2rem;
+}
+section#links .project-description {
+  display: block;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.2em;
+  margin-top: 0.2rem;
+}
+section#links .project-link {
+  border-left: 10px solid rgba(255, 255, 255, 0.3);
+  display: block;
+  padding-left: 0.5em;
+}
+section#links .project-link:hover {
+  text-decoration: none;
+  border-left-color: white;
 }
