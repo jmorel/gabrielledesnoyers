@@ -109,6 +109,11 @@ h2 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+@media (max-width: 699px) {
+  .projects-group {
+    margin: 4rem 0;
+  }
+}
 @media (min-width: 700px) {
   .projects-group {
     width: 33%;
