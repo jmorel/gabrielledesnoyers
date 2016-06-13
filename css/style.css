@@ -134,7 +134,7 @@ li {
 }
 .project-date {
   display: block;
-  color: #808080;
+  color: #333;
   font-style: italic;
   font-size: 0.9rem;
   line-height: 1.2em;
