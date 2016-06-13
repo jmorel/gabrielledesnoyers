@@ -4,7 +4,7 @@ var path = require('path');
 
 gulp.task('less', function () {
     return gulp
-        .src('./less/*.less')
+        .src('./less/style.less')
         .pipe(less())
         .pipe(gulp.dest('./css'));
 });
