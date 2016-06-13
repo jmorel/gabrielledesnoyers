@@ -1,0 +1,177 @@
+@import "variables";
+@import "ostrich";
+
+// General
+
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+html {
+    line-height: 1.67em;
+
+    @media (max-width: @screen-small-max) {
+        font-size: 14px;
+    }
+    @media (min-width: @screen-medium-min) and (max-width: @screen-medium-max) {
+        font-size: 18px;
+    }
+    @media (min-width: @screen-large-min) {
+        font-size: 23px;
+    }
+}
+
+body {
+    font-family: @font-family-body;
+    color: @color-white;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(180deg, @color-pink 0%, @color-orange 50%, @color-white 100%)
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    margin: auto;
+    padding: 0 2rem;
+
+    @media (max-width: @screen-small-max) {
+        width: @container-width-small;
+    }
+    @media (min-width: @screen-medium-min) and (max-width: @screen-medium-max) {
+        width: @container-width-medium;
+    }
+    @media (min-width: @screen-large-min) {
+        width: @container-width-large;
+    }
+}
+
+header,
+section,
+footer {
+    margin: 4rem 0;
+}
+
+h1, h2 {
+    font-family: @font-family-header;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1em;
+}
+
+h1 {
+    font-size: 2.67rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+// HEADER
+
+header {
+    border-bottom: @border-style;
+
+    @media (min-width: @screen-medium-min) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.subtitle {
+    font-family: @font-family-header;
+    font-size: 1.67rem;
+    line-height: 2rem;
+}
+
+// Projects
+
+#projects {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+#projects:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+h2 {
+    border-bottom: @border-style;
+}
+
+.projects-group {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media (max-width: @screen-small-max) {
+        margin: 4rem 0;
+    }
+
+    @media (min-width: @screen-medium-min) {
+        width: 33%;
+        float: left;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 1em 0;
+    line-height: 1.33em;
+}
+
+.project-title {
+    display: block;
+}
+
+.project-date {
+    display: block;
+    color: @color-gray;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.2em;
+    margin-top: 0.2rem;
+}
+
+.project-description {
+    display: block;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.2em;
+    margin-top: 0.2rem;
+}
+
+.project-link {
+    border-left: @border-style-dimmed;
+    display: block;
+    padding-left: 0.5em;
+}
+
+.project-link:hover {
+    text-decoration: none;
+    border-left-color: white;
+}
+
+// FOOTER
+
+footer {
+    border-bottom: @border-style;
+    display: flex;
+    justify-content: space-between;
+}
+

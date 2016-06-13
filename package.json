@@ -1,0 +1,14 @@
+{
+  "name": "gabrielledesnoyers",
+  "description": "Gabrielle Desnoyers's personal website and portfolio",
+  "author": "Jérémy Morel (hexagonal.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmorel/gabrielledesnoyers"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0"
+  }
+}
